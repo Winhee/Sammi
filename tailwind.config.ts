@@ -16,7 +16,7 @@ const config: Config = {
         text: '#1B1B1B',
       },
       fontFamily: {
-        sans: ['var(--font-pretendard)'],
+        sans: ['Pretendard Variable', 'sans-serif'],
         mono: ['var(--font-roboto-mono)'],
       },
       screens: {

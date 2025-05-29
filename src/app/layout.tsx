@@ -1,22 +1,5 @@
 import './globals.css'
-import localFont from 'next/font/local'
 import { Roboto_Mono } from 'next/font/google'
-
-const pretendard = localFont({
-  src: [
-    {
-      path: '../fonts/Pretendard-Regular.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../fonts/Pretendard-Bold.woff2',
-      weight: '700',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-pretendard',
-})
 
 const robotoMono = Roboto_Mono({
   subsets: ['latin'],
@@ -34,8 +17,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ko" className={`${pretendard.variable} ${robotoMono.variable}`}>
-      <body className="bg-background text-text">{children}</body>
+    <html lang="ko" className={robotoMono.variable}>
+      <head>
+        <link
+          rel="stylesheet"
+          as="style"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"
+        />
+      </head>
+      <body className="bg-background text-text font-sans">{children}</body>
     </html>
   )
 }
