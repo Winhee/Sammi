@@ -1,10 +1,16 @@
 import './globals.css'
 import { Roboto_Mono } from 'next/font/google'
+import { scheduleCleanup } from '@/utils/cleanupScheduler'
 
 const robotoMono = Roboto_Mono({
   subsets: ['latin'],
   variable: '--font-roboto-mono',
 })
+
+// 서버 사이드에서만 실행
+if (typeof window === 'undefined') {
+  scheduleCleanup();
+}
 
 export const metadata = {
   title: '삼미정보시스템(주)',

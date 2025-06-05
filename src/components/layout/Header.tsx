@@ -18,6 +18,10 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/90 shadow-md backdrop-blur-sm' : 'bg-transparent'
@@ -30,10 +34,18 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/about" className="text-text hover:text-primary transition-colors">회사소개</Link>
-            <Link href="/business" className="text-text hover:text-primary transition-colors">사업분야</Link>
-            <Link href="/products" className="text-text hover:text-primary transition-colors">제품소개</Link>
-            <Link href="/support" className="text-text hover:text-primary transition-colors">고객지원</Link>
+            <Link href="/about" className="text-text hover:text-primary transition-colors">
+              회사소개
+            </Link>
+            <Link href="/business" className="text-text hover:text-primary transition-colors">
+              사업분야
+            </Link>
+            <Link href="/products" className="text-text hover:text-primary transition-colors">
+              제품소개
+            </Link>
+            <Link href="/support" className="text-text hover:text-primary transition-colors">
+              고객지원
+            </Link>
             <LanguageSelector />
             <button className="px-4 py-2 bg-primary text-white rounded hover:bg-secondary transition-colors">
               문의하기
@@ -64,30 +76,30 @@ export default function Header() {
         }`}>
           <nav className="py-4 flex flex-col space-y-4">
             <Link 
-              href="/about" 
-              className="text-text hover:text-primary transition-colors px-2 py-1"
-              onClick={() => setIsMenuOpen(false)}
+              href="/about"
+              className="text-text hover:text-primary transition-colors px-2 py-1 text-left"
+              onClick={closeMenu}
             >
               회사소개
             </Link>
             <Link 
-              href="/business" 
-              className="text-text hover:text-primary transition-colors px-2 py-1"
-              onClick={() => setIsMenuOpen(false)}
+              href="/business"
+              className="text-text hover:text-primary transition-colors px-2 py-1 text-left"
+              onClick={closeMenu}
             >
               사업분야
             </Link>
             <Link 
-              href="/products" 
-              className="text-text hover:text-primary transition-colors px-2 py-1"
-              onClick={() => setIsMenuOpen(false)}
+              href="/products"
+              className="text-text hover:text-primary transition-colors px-2 py-1 text-left"
+              onClick={closeMenu}
             >
               제품소개
             </Link>
             <Link 
-              href="/support" 
-              className="text-text hover:text-primary transition-colors px-2 py-1"
-              onClick={() => setIsMenuOpen(false)}
+              href="/support"
+              className="text-text hover:text-primary transition-colors px-2 py-1 text-left"
+              onClick={closeMenu}
             >
               고객지원
             </Link>
